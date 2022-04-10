@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "c:\\Users\\emil1\\Desktop\\cw4\\cw4.csproj": {}
+    "C:\\Users\\emil1\\Desktop\\cw4\\cw4.csproj": {}
   },
   "projects": {
-    "c:\\Users\\emil1\\Desktop\\cw4\\cw4.csproj": {
+    "C:\\Users\\emil1\\Desktop\\cw4\\cw4.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "c:\\Users\\emil1\\Desktop\\cw4\\cw4.csproj",
+        "projectUniqueName": "C:\\Users\\emil1\\Desktop\\cw4\\cw4.csproj",
         "projectName": "cw4",
-        "projectPath": "c:\\Users\\emil1\\Desktop\\cw4\\cw4.csproj",
+        "projectPath": "C:\\Users\\emil1\\Desktop\\cw4\\cw4.csproj",
         "packagesPath": "C:\\Users\\emil1\\.nuget\\packages\\",
-        "outputPath": "c:\\Users\\emil1\\Desktop\\cw4\\obj\\",
+        "outputPath": "C:\\Users\\emil1\\Desktop\\cw4\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\emil1\\AppData\\Roaming\\NuGet\\NuGet.Config",

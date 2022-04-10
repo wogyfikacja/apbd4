@@ -20,7 +20,7 @@ namespace cw4.Services
 
         public int AddAnimal(Animal animal)
         {
-            using (var connection = new SqlConnection(_configuration.GetConnectionString("Default")))
+            using (var connection = new SqlConnection(_configuration.GetConnectionString("Server=localhost,1433; Database=Animals; User Id=SA; Password=<6o5vwbap9t6v>")))
             using (var command = new SqlCommand())
             {
                 command.Connection = connection;

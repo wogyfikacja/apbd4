@@ -20,7 +20,7 @@ namespace cw4.Services
 
         public int AddAnimal(Animal animal)
         {
-            using (var connection = new SqlConnection(_configuration.GetConnectionString("Server=localhost,1433; Database=Animals; User Id=SA; Password=<6o5vwbap9t6v>")))
+            using (var connection = new SqlConnection(_configuration.GetConnectionString("Server=localhost,1433; Database=Animals; User Id=SA; Password=<6o5vwbap9t6v>"))) // done on docker so this must be changed to valid connection string
             using (var command = new SqlCommand())
             {
                 command.Connection = connection;
@@ -63,6 +63,36 @@ namespace cw4.Services
             }
 
             return result;
+        }
+        public int UpdateAnimal(Animal animal, int id)
+        {
+            using (var connection = new SqlConnection(_configuration.GetConnectionString("Default")))
+            using (var command = new SqlCommand())
+            {
+                command.Connection = connection;
+                command.CommandText = "update animal set name = @1, description = @2, category = @3, area = @4 where idanimal = @5";
+                command.Parameters.AddWithValue("@1", animal.Name);
+                command.Parameters.AddWithValue("@2", animal.Description);
+                command.Parameters.AddWithValue("@3", animal.Category);
+                command.Parameters.AddWithValue("@4", animal.Area);
+                command.Parameters.AddWithValue("@5", id);
+                connection.Open();
+
+                return command.ExecuteNonQuery();
+            }
+        }
+        public int DeleteAnimal(int id)
+        {
+            using (var connection = new SqlConnection(_configuration.GetConnectionString("Default")))
+            using (var command = new SqlCommand())
+            {
+                command.Connection = connection;
+                command.CommandText = "delete from animal where idanimal = @1";
+                command.Parameters.AddWithValue("@1", id);
+                connection.Open();
+
+                return command.ExecuteNonQuery();
+            }
         }
     }
 }

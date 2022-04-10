@@ -32,5 +32,17 @@ namespace cw4.Controllers
             _service.AddAnimal(animal);
             return Created("", "");
         }
+        [HttpPut]
+        [Route("{id}")]
+        public IActionResult UpdateAnimal(int id, Animal animal)
+        {
+            return Ok(_service.UpdateAnimal(animal,id));
+        }
+        [HttpDelete]
+        [Route("{id}")]
+        public IActionResult DeleteAnimal(int id)
+        {
+            return Ok(_service.DeleteAnimal(id));
+        }
     }
 }

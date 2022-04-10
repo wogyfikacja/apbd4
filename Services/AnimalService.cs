@@ -10,6 +10,7 @@ namespace cw4.Services
 {
     public class AnimalService : IAnimalService
     {
+        private string connectionString = "Server=localhost,1433; Database=Animals; User Id=SA; Password=<6o5vwbap9t6v>"; // done on docker so this must be changed to valid connection string
 
         private readonly IConfiguration _configuration;
 
@@ -20,7 +21,7 @@ namespace cw4.Services
 
         public int AddAnimal(Animal animal)
         {
-            using (var connection = new SqlConnection(_configuration.GetConnectionString("Server=localhost,1433; Database=Animals; User Id=SA; Password=<6o5vwbap9t6v>"))) // done on docker so this must be changed to valid connection string
+            using (var connection = new SqlConnection(_configuration.GetConnectionString(connectionString))) 
             using (var command = new SqlCommand())
             {
                 command.Connection = connection;
@@ -40,7 +41,7 @@ namespace cw4.Services
         {
             var result = new List<Animal>();
 
-            using (var connection = new SqlConnection(_configuration.GetConnectionString("Default")))
+            using (var connection = new SqlConnection(_configuration.GetConnectionString(connectionString)))
             using (var command = new SqlCommand())
             {
                 command.Connection = connection;
@@ -66,7 +67,7 @@ namespace cw4.Services
         }
         public int UpdateAnimal(Animal animal, int id)
         {
-            using (var connection = new SqlConnection(_configuration.GetConnectionString("Default")))
+            using (var connection = new SqlConnection(_configuration.GetConnectionString(connectionString)))
             using (var command = new SqlCommand())
             {
                 command.Connection = connection;
@@ -83,7 +84,7 @@ namespace cw4.Services
         }
         public int DeleteAnimal(int id)
         {
-            using (var connection = new SqlConnection(_configuration.GetConnectionString("Default")))
+            using (var connection = new SqlConnection(_configuration.GetConnectionString(connectionString)))
             using (var command = new SqlCommand())
             {
                 command.Connection = connection;
